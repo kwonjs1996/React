@@ -1,3 +1,4 @@
+import React from "react";
 import Expenses from "./components/Expenses";
 
 function App() {
@@ -22,6 +23,13 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  /*   return React.createElement(
+    "div",
+    {},
+    React.createElement("h1", {}, "Let's get started!"),
+    React.createElement(Expenses, { items: expenses })
+  );  JSX가 변환되는 과정 => 과거에 쓰이던 형태*/
+
   return (
     <div>
       <h2>Let's get started!</h2>
