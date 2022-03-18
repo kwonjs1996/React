@@ -2,50 +2,62 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-  /*   const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState(""); */
-  const [userInput, setUserInput] = useState({
+  const [enteredDate, setEnteredDate] = useState("");
+  /*   const [userInput, setUserInput] = useState({
     enteredTitle: "",
     enteredAmount: "",
     enteredDate: "",
-  });
+  }); */
 
   const titleCangeHandler = (e) => {
-    //setEnteredTitle(e.target.value);
+    setEnteredTitle(e.target.value);
     /*     setUserInput({
       ...userInput,
       enteredTitle: e.target.value,
     });*/
-    setUserInput((prevState) => {
+    /*     setUserInput((prevState) => {
       return { ...prevState, enteredTitle: e.target.value };
-    });
+    }); */
   };
 
   const amountChangeHandler = (e) => {
-    //setEnteredAmount(e.target.value);
+    setEnteredAmount(e.target.value);
     /*     setUserInput({
       ...userInput,
-      enteredAmount: e.target.value,
+      enteredAmount: e.target.value,///과거의 스냅샷에 의존하여 최신상태 업데이트가 보장되지 않을 수 있다.
     }); */
-    setUserInput((prevState) => {
-      return { ...prevState, enteredAmount: e.target.value };
-    });
+    /*     setUserInput((prevState) => {
+      ///항상 이 함수 폼을 사용하여 업데이트 한다*암기*
+      return { ...prevState, enteredAmount: e.target.value }; ///최신상태를 보장하여 업데이트 해준다
+    }); */
   };
 
   const dateChangeHandler = (e) => {
-    //setEnteredDate(e.target.value);
+    setEnteredDate(e.target.value);
     /*     setUserInput({
       ...userInput,
       enteredDate: e.target.value,
     }); */
-    setUserInput((prevState) => {
+    /*     setUserInput((prevState) => {
       return { ...prevState, enteredDate: e.target.value };
-    });
+    }); */
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+    console.log(expenseData);
   };
 
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
