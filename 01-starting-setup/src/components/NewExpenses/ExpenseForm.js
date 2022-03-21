@@ -73,7 +73,7 @@ const ExpenseForm = (props) => {
         <div className="new-expense__control">
           <label>Amount</label>
           <input
-            type="nember"
+            type="number"
             min="0.01"
             step="0.01"
             value={enteredAmount}
